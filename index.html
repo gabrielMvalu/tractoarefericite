@@ -16,11 +16,32 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
+            position: fixed;
         }
 
         spline-viewer {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100dvh; /* folosim dvh pentru suport mai bun pe mobile */
+            max-width: 100vw;
+            max-height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            object-fit: contain;
+        }
+
+        @media (orientation: portrait) {
+            spline-viewer {
+                height: 100dvh;
+            }
+        }
+
+        @media (orientation: landscape) {
+            spline-viewer {
+                width: 100vw;
+            }
         }
     </style>
 </head>
