@@ -12,40 +12,37 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .spline-container {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: fixed;
+            max-width: 1080px;
+            aspect-ratio: 1080/1863;
+            margin: auto;
         }
 
         spline-viewer {
             width: 100%;
-            height: 100dvh; /* folosim dvh pentru suport mai bun pe mobile */
-            max-width: 100vw;
-            max-height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            object-fit: contain;
+            height: 100%;
         }
 
-        @media (orientation: portrait) {
-            spline-viewer {
-                height: 100dvh;
-            }
-        }
-
-        @media (orientation: landscape) {
-            spline-viewer {
+        @media (max-width: 768px) {
+            .spline-container {
                 width: 100vw;
+                height: 100vh;
             }
         }
     </style>
 </head>
 <body>
-    <spline-viewer url="https://prod.spline.design/onqnN18PBM8IKBT1/scene.splinecode"></spline-viewer>
+    <div class="spline-container">
+        <spline-viewer url="https://prod.spline.design/onqnN18PBM8IKBT1/scene.splinecode"></spline-viewer>
+    </div>
 </body>
 </html>
